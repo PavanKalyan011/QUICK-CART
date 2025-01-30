@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Db_Instance =axios.create (
     {
-    baseURL:"http://localhost:3000"
+    baseURL:"https://user-address-3a2b.onrender.com/"
 }
 )
 
