@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Db_Instance =axios.create (
     {
-    baseURL:"https://user-address-3a2b.onrender.com/"
+    baseURL:"${process.env.REACT_APP_API_URL}/"
 }
 )
 
