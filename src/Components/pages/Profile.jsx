@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import LoginSignUpForm from "./LoginSignUpForm";
 import { loginContext } from "../../App";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Profile = () => {
+ let navigate= useNavigate()
   let { loginState, handleLogin, handleLogout } = useContext(loginContext);
   let [isLogin, setIsLogin] = useState(true); // Toggle between login and signup  
   console.log("Current Login State:", loginState);
@@ -30,6 +32,7 @@ const Profile = () => {
       if (userExists.password !== formData.password) return alert("Incorrect password");
       handleLogin(userExists);
       alert("Login successful!");
+     navigate("/")
     } else {
       if (userExists) return alert("User already exists. Please login.");
       existingUsers.push(formData);

@@ -9,8 +9,9 @@ const Card = (props) => {
  let {cartState,setCartState}= useContext(cartContext)
  let loc=useLocation();
 //  console.log(cartState)
- let {id, title, price, rating, image,description,brand,color,model}=props.product
- 
+ let {id, title, price, rating, image,brand}=props.product
+//  console.log(props)
+//  console.log(source)
   // Generalized function to update cart
   const updateCart = (type) => {
     setCartState((prev) => {
@@ -88,7 +89,7 @@ const quantity = productInCart ? productInCart.quantity : 0;
     return (
       
             <div className={`${loc.pathname==="/cart" && " min-h-[300px] w-[300px] gap-4 p-5" } rounded-3xl bg-white   flex font-semibold flex-col items-center justify-center text-center min-h-[350px] w-[350px] gap-5 p-5  `}>
-             <NavLink to="/productdisplay" state={id}>
+             <NavLink to="/productdisplay" state={{id,isElectronics:props.isElectronics}}>
               <img src={image} alt="" className="h-[180px] w-[260px] my-2" />
               <h3 className="text-xl ">{title.slice(0, 25)}</h3>
 

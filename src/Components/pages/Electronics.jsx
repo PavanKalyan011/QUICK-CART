@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Axiosinstance2 } from '../../api/Axiosinstance'
 import Loader from '../Loader'
 import Card from '../Card'
+import { useLocation } from 'react-router-dom'
 
 const Electronics = () => {
   let [state,setState]=useState([])
@@ -15,12 +16,14 @@ useEffect(()=>{
   fetchApi();
 },[])
 if(loading){
- <Loader/>
+return  <Loader/>
  } 
+
+ 
  return (
     <div className='p-10 flex flex-wrap gap-20 justify-around'>
      {state.map((obj,index)=>{
-      return <Card product={obj} key={index}/>
+      return <Card product={obj} key={index} isElectronics={true}/>
      })}
     </div>
 )

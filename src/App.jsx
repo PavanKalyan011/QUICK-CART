@@ -15,9 +15,11 @@ import Jewellery from "./Components/pages/Jewellery";
 import ProductDisplay from "./Components/productDisplay";
 import Delivery from "./Components/Delivery";
 import Profile from "./Components/pages/Profile";
+import SearchResults from "./Components/SearchResults";
 
 export const cartContext = createContext();
 export const loginContext = createContext();
+export const searchContext=createContext();
 
 const App = () => {
   let [cartState, setCartState] = useState({
@@ -27,6 +29,11 @@ const App = () => {
 
   let [loginState, setLoginState] = useState(JSON.parse(localStorage.getItem("login")) || null);
 
+  let [searchState,setSearchState]=useState("")
+  
+  const handleSearchResult=(newData)=>{
+    setSearchState(newData)
+  }
   const handleLogin = (user) => {
     setLoginState(user);
     localStorage.setItem("login", JSON.stringify(user));
@@ -36,9 +43,13 @@ const App = () => {
     setLoginState(null);
     localStorage.removeItem("login");
   };
-
+ let search={
+  searchInput:searchState,
+  searchResultFunc:handleSearchResult
+ }
   return (
     <loginContext.Provider value={{ loginState, handleLogin, handleLogout }}>
+      <searchContext.Provider value={{searchState,handleSearchResult}}>
       <cartContext.Provider value={{ cartState, setCartState }}>
         <div className="overflow-hidden">
           <BrowserRouter>
@@ -56,6 +67,7 @@ const App = () => {
                     {/* If logged in, show all pages */}
                     <Route path="/" element={<Cheif />} />
                     <Route path="/electronics" element={<Electronics />} />
+                    <Route path="/searchresults" element={<SearchResults/>}></Route>
                     <Route path="/men" element={<Men />} />
                     <Route path="/women" element={<Women />} />
                     <Route path="/cart" element={<Cart />} />
@@ -76,6 +88,7 @@ const App = () => {
           </BrowserRouter>
         </div>
       </cartContext.Provider>
+      </searchContext.Provider>
     </loginContext.Provider>
   );
 };

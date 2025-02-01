@@ -1,25 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { useLocation,NavLink } from "react-router-dom";
-import Axiosinstance from "../api/Axiosinstance";
+import Axiosinstance, { Axiosinstance2 } from "../api/Axiosinstance";
 import Loader from "./Loader";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { cartContext } from "../App";
 import { useContext } from "react";
-import { use } from "react";
+
 
 const ProductDisplay = () => {
   const loc = useLocation().state;  // Get product ID passed as state
-  console.log(useLocation());
+  // console.log(useLocation());
+  console.log(loc.isElectronics)
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
   const { cartState, setCartState } = useContext(cartContext);
 
   const fetchProduct = async () => {
     try {
-      const response = await Axiosinstance.get("/products");
-      const product = response.data.find((prod) => prod.id === loc?.id);
+     var response;
+     var product;
+      if(loc.isElectronics){
+       response=await Axiosinstance2.get("/products")
+       product = response.data.products.find((prod) => prod.id === loc.id);
+
+       console.log(response)
+      }else{
+       response = await Axiosinstance.get("/products");
+       product = response.data.find((prod) => prod.id === loc.id);
+       console.log(response)
+      }
+ 
       if (product) {
         setState(product);
+        setLoading(false)
       } else {
         console.error("Product not found!");
       }

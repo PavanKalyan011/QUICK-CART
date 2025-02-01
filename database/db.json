@@ -1,20 +1,5 @@
 {
   "address": [
-    {
-      "id": "1",
-      "username": "Pavan",
-      "email": "pavankalyanbaswaraju@gmail.com",
-      "phn_no": "1234569011",
-      "address": "hyd",
-      "pincode": "505528"
-    },
-    {
-      "id": 2,
-      "username": "ashwith",
-      "email": "ash@gmail.com",
-      "phn_no": "12345690",
-      "address": "pola",
-      "pincode": "566688"
-    }
+  
   ]
 }

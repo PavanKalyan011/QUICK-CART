@@ -1,8 +1,10 @@
-import React from 'react';
-import axios from 'axios';
+import React from 'react'
+import axios from 'axios'
 
-const Db_Instance = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/`
-});
+const Db_Instance =axios.create (
+    {
+    baseURL:"https://user-address-3a2b.onrender.com/"
+}
+)
 
-export default Db_Instance;
+export default Db_Instance

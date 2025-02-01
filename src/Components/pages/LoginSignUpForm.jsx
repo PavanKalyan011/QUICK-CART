@@ -44,7 +44,7 @@ const LoginSignUpForm = ({ formData, formLoginType, handleChange, handleSubmit, 
           className="border-none rounded-lg p-1 placeholder-content-visible text-black"
           
         />
-        <FaEyeSlash className="border ml-[360px] mt-[-23px] fill-black" onClick={()=>{passwordVisibility()}}/>
+        <FaEyeSlash className={`border ${formLoginType?"ml-[360px]":"ml-[320px]"} mt-[-23px] fill-black`} onClick={()=>{passwordVisibility()}}/>
         <br />
         <div className="flex justify-center">
           <button type="submit" className="border-none rounded-md w-16 h-8 p-1 text-white bg-slate-950">
