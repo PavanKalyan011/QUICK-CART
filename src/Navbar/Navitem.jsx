@@ -33,7 +33,7 @@ const Navitem = () => {
           <div className="ml-10 w-1/4 flex justify-center items-center">
             <NavLink to="/" className="flex items-center gap-4 text-white font-bold text-2xl">
               <img src={logo} alt="Quickcart logo" className="h-16 animate-spin-slow hover:scale-[1.3] hover:rotate-90" />
-               <h1 className="text-[11px] absolute top-4 left-40">MY</h1>
+               <h1 className="text-[11  px] absolute top-4 left-40">MY</h1>
                 <h1 >QUICKCART</h1>
             </NavLink>
           </div>
