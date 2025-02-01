@@ -150,4 +150,3 @@ const quantity = productInCart ? productInCart.quantity : 0;
 export default Card;
 
 
-
